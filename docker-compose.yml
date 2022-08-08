@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  nginx:
+    build:
+      context: nginx/.
+      dockerfile: Dockerfile
+    container_name: nginx-test
+    restart: always
+    depends_on:
+      - api1
+      - api2
+    networks:
+      - nodes
+    ports:
+      - "8080:8080"
+  
+  api1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - nodes
+  
+  api2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - nodes
+
+volumes:
+  db-data: {}
+networks:
+  nodes:
