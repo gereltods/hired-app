@@ -41,9 +41,11 @@ var (
 	rPwd                        = os.Getenv(redisPwd)
 )
 
+//"103.50.205.205"
+
 func init() {
 	if rHost == "" {
-		rHost = "103.50.205.205"
+		rHost = "178.128.125.46"
 		rPort = "16379"
 		rPwd = ""
 	}
