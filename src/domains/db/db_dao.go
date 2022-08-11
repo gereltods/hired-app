@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	queryUserSelectAll = "select array_to_json(array_agg(row_to_json(r.*))) as rowjson from (select * from oky.oky_mn.oky_user order by country limit 200)r"
+	queryUserSelectAll = "select array_to_json(array_agg(row_to_json(r.*))) as rowjson from (select * from oky.oky_mn.oky_user order by country limit 10)r"
 )
 
 func LoadAllUserNoCache() []byte {
