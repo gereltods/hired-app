@@ -16,7 +16,8 @@ const (
 )
 
 func LoadAllUserNoCache() []byte {
-
+	defer timer.Timer()()
+	fmt.Print("From DB\n")
 	rows, err := pg.PgPool.Query(context.Background(), queryUserSelectAll)
 	if err != nil {
 		fmt.Printf("%v", err)
@@ -24,7 +25,6 @@ func LoadAllUserNoCache() []byte {
 		errors.NewInternalServerError("database error", nil)
 	}
 	for rows.Next() {
-		fmt.Print("From DB\n")
 		values, err := rows.Values()
 		if err != nil {
 			log.Fatal("error while iterating dataset")
