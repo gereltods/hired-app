@@ -23,6 +23,7 @@ jobs:
           token: ${{secrets.github_token}} 
 
       - name: Generate deployment package
+        working-directory: ./next-app
         run: npm run next-install && npm run generate-zip
 
       - name: Deploy to EB
