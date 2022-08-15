@@ -30,7 +30,7 @@ jobs:
         uses: einaregilsson/beanstalk-deploy@v18
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
-          aws_secret_key: ${{ secrets.AWS_SECRET }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
           application_name: next-app
           environment_name: next-app-dev
           version_label: next-app-${{ steps.buildnumber.outputs.build_number }}
