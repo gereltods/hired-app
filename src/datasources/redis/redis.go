@@ -45,7 +45,7 @@ var (
 //"178.128.125.46"
 func init() {
 	if rHost == "" {
-		rHost = "10.130.0.2"
+		rHost = "178.128.125.46"
 		rPort = "16379"
 		rPwd = ""
 	}
