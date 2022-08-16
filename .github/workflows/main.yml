@@ -35,6 +35,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: Stop docker compose
+        run: docker compose stop
       - name: Build docker compose
         run: docker compose up --build -d
       - name: Docker test
