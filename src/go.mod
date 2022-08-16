@@ -3,6 +3,7 @@ module fasthttp
 go 1.18
 
 require (
+	github.com/AdhityaRamadhanus/fasthttpcors v0.0.0-20170121111917-d4c07198763a
 	github.com/fasthttp/router v1.4.11
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/jackc/pgx/v4 v4.16.1
