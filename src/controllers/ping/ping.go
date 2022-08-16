@@ -1,6 +1,7 @@
 package ping
 
 import (
+	"encoding/json"
 	"fasthttp/services"
 
 	"github.com/valyala/fasthttp"
@@ -11,9 +12,12 @@ func Ping(ctx *fasthttp.RequestCtx) {
 }
 
 func Check(ctx *fasthttp.RequestCtx) {
-	str := services.UsersService.GetAll()
+	//var dbs db.Dbs
+	dbs := services.UsersService.GetAll()
 	ctx.Response.Header.Set("Content-Type", "application/json")
-	ctx.Write(str)
+
+	json.NewEncoder(ctx).Encode(dbs.Marshall(true))
+	//ctx.Write()(db.Marshall(true))
 }
 
 func Checkwithout(ctx *fasthttp.RequestCtx) {

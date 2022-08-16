@@ -38,7 +38,7 @@ func LoadAllUserNoCache() []byte {
 	return []byte("")
 }
 
-func LoadAllUser() []byte {
+func (db *Dbs) LoadAllUser() []byte {
 	defer timer.Timer()()
 	usrString, rerr := redis.RedisService.GetRedis("LoadAllUser")
 	if rerr != nil {
@@ -47,6 +47,7 @@ func LoadAllUser() []byte {
 	if usrString != "" {
 		fmt.Print("From Redis\n")
 		a, _ := json.Marshal(usrString)
+		json.Unmarshal([]byte(usrString), &db)
 		return a
 	} else {
 
@@ -68,7 +69,7 @@ func LoadAllUser() []byte {
 				errors.NewInternalServerError("try to save redis", rerr)
 			}
 			//convert DB types to Go types
-
+			json.Unmarshal(a, &db)
 			return a
 		}
 	}
