@@ -8,7 +8,7 @@ import (
 )
 
 func Ping(ctx *fasthttp.RequestCtx) {
-	ctx.WriteString("pong")
+	ctx.WriteString("pongpong")
 }
 
 func Check(ctx *fasthttp.RequestCtx) {
